@@ -56,7 +56,17 @@ class PiConsole16x16:
 
 
     def joyX(self):
-        return -(ADC(28).read_u16()//4096-8)
+        retval=-((ADC(28).read_u16()-29000)//4096)
+        if retval<-7:
+            retval=-7
+        elif retval>8:
+            retval=8
+        return retval 
     
     def joyY(self):
-        return ADC(27).read_u16()//4096-8
+        retval= (ADC(27).read_u16()-29000)//4096
+        if retval<-7:
+            retval=-7
+        elif retval>8:
+            retval=8
+        return retval 

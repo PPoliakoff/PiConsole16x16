@@ -36,7 +36,17 @@ class PiConsole16x16:
         return self.mat[x][y]
 
     def joyX(self):
-        return (self.mouse[0]+5)//10
+        retval= (self.mouse[0]+5)//10
+        if retval<-7:
+            retval=-7
+        elif retval>8:
+            retval=8
+        return retval
 
     def joyY(self):
-        return (self.mouse[1]+5)//10
+        retval= (self.mouse[1]+5)//10
+        if retval<-7:
+            retval=-7
+        elif retval>8:
+            retval=8
+        return retval
